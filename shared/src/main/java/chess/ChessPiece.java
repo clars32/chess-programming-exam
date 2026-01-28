@@ -5,6 +5,7 @@ import chess.ChessGame.TeamColor;
 import chess.piecemoves.BishopMovesCalculator;
 import chess.piecemoves.KingMovesCalculator;
 import chess.piecemoves.KnightMovesCalculator;
+import chess.piecemoves.PawnMovesCalculator;
 import chess.piecemoves.PieceMovesCalculator;
 
 /**
@@ -42,6 +43,7 @@ public class ChessPiece {
             case KING: return new KingMovesCalculator();
             case KNIGHT: return new KnightMovesCalculator();
             case BISHOP: return new BishopMovesCalculator();
+            case PAWN: return new PawnMovesCalculator();
             default: return new BishopMovesCalculator();
         }
     }
