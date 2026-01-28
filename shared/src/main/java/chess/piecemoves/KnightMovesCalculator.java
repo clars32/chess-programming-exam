@@ -1,7 +1,7 @@
 package chess.piecemoves;
 
-import java.util.Collection;
 import java.util.ArrayList;
+import java.util.Collection;
 
 import chess.ChessBoard;
 import chess.ChessGame.TeamColor;
@@ -9,8 +9,8 @@ import chess.ChessMove;
 import chess.ChessPiece;
 import chess.ChessPosition;
 
-public class KingMovesCalculator implements PieceMovesCalculator {
-    
+public class KnightMovesCalculator implements PieceMovesCalculator {
+
     public Collection<ChessMove> pieceMoves(ChessBoard board, ChessPosition myPosition) {
 
         int currentRow = myPosition.getRow();
@@ -20,16 +20,16 @@ public class KingMovesCalculator implements PieceMovesCalculator {
 
         ArrayList<ChessMove> possibleMoves = new ArrayList<ChessMove>();
 
-        // Add all candidate moves for the king
+        // Add all candidate moves for the knight
         ArrayList<ChessPosition> candidatePositions = new ArrayList<ChessPosition>();
-        candidatePositions.add(new ChessPosition(currentRow + 1, currentCol));
-        candidatePositions.add(new ChessPosition(currentRow + 1, currentCol + 1));
-        candidatePositions.add(new ChessPosition(currentRow, currentCol + 1));
-        candidatePositions.add(new ChessPosition(currentRow - 1, currentCol + 1));
-        candidatePositions.add(new ChessPosition(currentRow - 1, currentCol));
-        candidatePositions.add(new ChessPosition(currentRow - 1, currentCol - 1));
-        candidatePositions.add(new ChessPosition(currentRow, currentCol - 1));
-        candidatePositions.add(new ChessPosition(currentRow + 1, currentCol - 1));
+        candidatePositions.add(new ChessPosition(currentRow + 2, currentCol + 1));
+        candidatePositions.add(new ChessPosition(currentRow + 1, currentCol + 2));
+        candidatePositions.add(new ChessPosition(currentRow - 1, currentCol + 2));
+        candidatePositions.add(new ChessPosition(currentRow - 2, currentCol + 1));
+        candidatePositions.add(new ChessPosition(currentRow + 2, currentCol - 1));
+        candidatePositions.add(new ChessPosition(currentRow + 1, currentCol - 2));
+        candidatePositions.add(new ChessPosition(currentRow - 1, currentCol - 2));
+        candidatePositions.add(new ChessPosition(currentRow - 2, currentCol - 1));
 
         // Check all positions to see if they are valid
         for (ChessPosition candidatePosition : candidatePositions) {

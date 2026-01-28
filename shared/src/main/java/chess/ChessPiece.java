@@ -4,6 +4,7 @@ import java.util.Collection;
 import chess.ChessGame.TeamColor;
 import chess.piecemoves.BishopMovesCalculator;
 import chess.piecemoves.KingMovesCalculator;
+import chess.piecemoves.KnightMovesCalculator;
 import chess.piecemoves.PieceMovesCalculator;
 
 /**
@@ -39,6 +40,7 @@ public class ChessPiece {
     private PieceMovesCalculator initializeCalculator(PieceType pieceType) {
         switch (pieceType) {
             case KING: return new KingMovesCalculator();
+            case KNIGHT: return new KnightMovesCalculator();
             case BISHOP: return new BishopMovesCalculator();
             default: return new BishopMovesCalculator();
         }
