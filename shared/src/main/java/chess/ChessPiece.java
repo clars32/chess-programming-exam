@@ -2,6 +2,7 @@ package chess;
 
 import java.util.Collection;
 import chess.ChessGame.TeamColor;
+import chess.piecemoves.BishopMovesCalculator;
 import chess.piecemoves.PieceMovesCalculator;
 
 /**
@@ -14,10 +15,12 @@ public class ChessPiece {
 
     private final TeamColor pieceColor;
     private final PieceType type;
+    private final PieceMovesCalculator movesCalculator;
 
     public ChessPiece(ChessGame.TeamColor pieceColor, ChessPiece.PieceType type) {
         this.pieceColor = pieceColor;
         this.type = type;
+        movesCalculator = initializeCalculator(type);
     }
 
     /**
@@ -32,12 +35,12 @@ public class ChessPiece {
         PAWN
     }
 
-    // private PieceMovesCalculator initializeCalculator(PieceType pieceType) {
-    //     switch (pieceType) {
-    //         case KING: return 
-    //         case default: return 
-    //     }
-    // }
+    private PieceMovesCalculator initializeCalculator(PieceType pieceType) {
+        switch (pieceType) {
+            case BISHOP: return new BishopMovesCalculator();
+            default: return new BishopMovesCalculator();
+        }
+    }
 
     /**
      * @return Which team this chess piece belongs to
@@ -61,7 +64,7 @@ public class ChessPiece {
      * @return Collection of valid moves
      */
     public Collection<ChessMove> pieceMoves(ChessBoard board, ChessPosition myPosition) {
-        throw new RuntimeException("Not implemented");
+        return movesCalculator.pieceMoves(board, myPosition);
     }
 
     @Override
