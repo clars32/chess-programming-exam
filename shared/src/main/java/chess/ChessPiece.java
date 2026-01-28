@@ -8,6 +8,7 @@ import chess.piecemoves.KnightMovesCalculator;
 import chess.piecemoves.PawnMovesCalculator;
 import chess.piecemoves.PieceMovesCalculator;
 import chess.piecemoves.QueenMovesCalculator;
+import chess.piecemoves.RookMovesCalculator;
 
 /**
  * Represents a single chess piece
@@ -43,8 +44,9 @@ public class ChessPiece {
         switch (pieceType) {
             case KING: return new KingMovesCalculator();
             case QUEEN: return new QueenMovesCalculator();
-            case KNIGHT: return new KnightMovesCalculator();
             case BISHOP: return new BishopMovesCalculator();
+            case KNIGHT: return new KnightMovesCalculator();
+            case ROOK: return new RookMovesCalculator();
             case PAWN: return new PawnMovesCalculator();
             default: return new BishopMovesCalculator();
         }
